@@ -9,13 +9,12 @@ use craft\base\ElementInterface;
 use craft\base\Field;
 use craft\base\PreviewableFieldInterface;
 use LitEmoji\LitEmoji;
-use yii\db\Schema;
 use codemonauts\buttons\Buttons as Plugin;
 
 class Buttons extends Field implements PreviewableFieldInterface
 {
-    /*
-     * @var string[] Default values for buttons
+    /**
+     * @var array Default values for buttons
      */
     protected $defaultButton = [
         'image' => '',
@@ -49,14 +48,6 @@ class Buttons extends Field implements PreviewableFieldInterface
     /**
      * @inheritdoc
      */
-    public function getContentColumnType(): string
-    {
-        return Schema::TYPE_STRING;
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function getSettingsHtml()
     {
         $options = [];
@@ -68,16 +59,15 @@ class Buttons extends Field implements PreviewableFieldInterface
             ];
         }
 
-        return Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'selectField',
+        return Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'selectField', [
             [
-                [
-                    'label' => Craft::t('buttons', 'Button group'),
-                    'id' => 'configHandle',
-                    'name' => 'configHandle',
-                    'options' => $options,
-                    'value' => $this->configHandle,
-                ],
-            ]);
+                'label' => Craft::t('buttons', 'Button group'),
+                'id' => 'configHandle',
+                'name' => 'configHandle',
+                'options' => $options,
+                'value' => $this->configHandle,
+            ],
+        ]);
     }
 
     /**
@@ -85,26 +75,30 @@ class Buttons extends Field implements PreviewableFieldInterface
      */
     public function getInputHtml($value, ElementInterface $element = null): string
     {
+        $settings = Plugin::getInstance()->getSettings();
         $group = Plugin::getInstance()->getSettings()->buttonGroups[$this->configHandle];
+
+        if ($settings->cssUrl !== '') {
+            Craft::$app->getView()->registerCssFile($settings->cssUrl);
+        }
 
         $buttons = [];
         foreach ($group['buttons'] as $handle => $button) {
             $buttons[$handle] = array_merge($this->defaultButton, $button);
-            if ($buttons[$handle]['image'] != '') {
-                $buttons[$handle]['image'] = Craft::$app->assetManager->getPublishedUrl($buttons[$handle]['image'], true);
+            if ($buttons[$handle]['image'] !== '') {
+                $buttons[$handle]['image'] = Craft::$app->assetManager->getPublishedUrl($buttons[$handle]['image'], false);
             }
         }
 
         Craft::$app->getView()->registerAssetBundle(ButtonsAssets::class);
         Craft::$app->getView()->registerAssetBundle(CustomAssets::class);
 
-        return Craft::$app->getView()->renderTemplate('buttons/input',
-            [
-                'name' => $this->handle,
-                'value' => $value,
-                'field' => $this,
-                'buttons' => $buttons,
-            ]);
+        return Craft::$app->getView()->renderTemplate('buttons/input', [
+            'name' => $this->handle,
+            'value' => $value,
+            'field' => $this,
+            'buttons' => $buttons,
+        ]);
     }
 
     /**

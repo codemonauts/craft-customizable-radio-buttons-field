@@ -1,42 +1,42 @@
 {
   "name": "codemonauts/craft-customizable-radio-buttons-field",
-  "description": "Radio buttons field customizable with CSS classes, icons, images and text",
+  "description": "Craft CMS plugin to add a radio buttons field, customizable with CSS classes, icons, images and text.",
   "version": "1.0.0",
   "type": "craft-plugin",
-  "minimum-stability": "dev",
   "keywords": [
     "craft",
     "cms",
     "craftcms",
-    "craft-plugin"
+    "craft-plugin",
+    "field",
+    "buttons"
   ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "codemonauts",
+      "homepage": "https://codemonauts.com"
+    }
+  ],
+  "support": {
+    "source": "https://github.com/codemonauts/craft-customizable-radio-buttons-field",
+    "docs": "https://github.com/codemonauts/craft-customizable-radio-buttons-field/blob/master/README.md",
+    "issues": "https://github.com/codemonauts/craft-customizable-radio-buttons-field/issues"
+  },
+  "require": {
+    "craftcms/cms": "^3.0.0"
+  },
   "autoload": {
     "psr-4": {
       "codemonauts\\buttons\\": "src/"
     }
   },
-  "authors": [
-    {
-      "name": "codemonauts",
-      "homepage": "https://www.codemonauts.com"
-    }
-  ],
-  "require": {
-    "craftcms/cms": "^3.0.0"
-  },
-  "support": {
-    "docs": "https://github.com/codemonauts/craft-customizable-radio-buttons-field/blob/master/README.md",
-    "issues": "https://github.com/codemonauts/craft-customizable-radio-buttons-field/issues"
-  },
-  "license": "MIT",
   "extra": {
     "handle": "buttons",
-    "name": "Customizable radio buttons field",
-    "developer": "codemonauts",
-    "developerUrl": "https://www.codemonauts.com",
-    "schemaVersion": "1.0.0",
+    "class": "codemonauts\\buttons\\Buttons",
+    "name": "Customizable Radio Buttons Field",
+    "description": "Radio buttons field, customizable with CSS classes, icons, images and text.",
     "hasCpSection": false,
-    "hasSettings": false,
-    "class": "codemonauts\\buttons\\Buttons"
+    "hasSettings": false
   }
 }

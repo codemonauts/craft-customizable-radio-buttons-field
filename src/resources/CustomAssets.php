@@ -9,11 +9,14 @@ use Craft;
 
 class CustomAssets extends AssetBundle
 {
+    /**
+     * @inheritDoc
+     */
     public function init()
     {
         $cssFile = Buttons::getInstance()->getSettings()->cssFile;
 
-        if ($cssFile != '') {
+        if ($cssFile !== '') {
             $file = Craft::getAlias($cssFile);
             $this->sourcePath = pathinfo($file, PATHINFO_DIRNAME);
 

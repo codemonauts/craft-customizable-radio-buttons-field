@@ -2,10 +2,8 @@
 
 namespace codemonauts\buttons\resources;
 
-use codemonauts\buttons\Buttons;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
-use Craft;
 
 class ButtonsAssets extends AssetBundle
 {

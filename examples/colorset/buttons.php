@@ -1,10 +1,10 @@
 <?php
 
 return [
+    'cssFile' => '@config/buttons/colorset.css',
     'buttonGroups' => [
         'colorset' => [
             'name' => 'Colorset',
-            'cssFile' => '@config/buttons/colorset.css',
             'buttons' => [
                 'white' => [
                     'label' => 'T',

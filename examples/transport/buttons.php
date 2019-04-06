@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'cssFile' => '@config/buttons/fontawesome.css',
+    'cssUrl' => 'https://use.fontawesome.com/releases/v5.8.1/css/all.css',
     'buttonGroups' => [
-        'icons' => [
+        'transport' => [
             'name' => 'Transport',
             'buttons' => [
                 'bicycle' => [
