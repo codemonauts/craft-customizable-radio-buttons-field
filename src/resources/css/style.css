@@ -1,0 +1,65 @@
+body {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+.btn-group {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    border: 1px solid #CECFD1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.btn-group label {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: #FBFBFB;
+    padding: 10px;
+    border: 1px solid #CECFD1;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    cursor: pointer;
+}
+
+.btn-group label:last-child {
+    border-right-width: 0;
+}
+
+.btn-group label span {
+    font-size: 2rem;
+}
+
+.btn-group input[type=radio] {
+    display: none;
+}
+
+.btn-group input[type=radio]:checked + label {
+    background-color: #E6E7E8;
+    box-shadow: inset 0 2px 4px rgba(10, 10, 10, 0.5);
+    position: relative;
+}
+
+.btn-group input[type=radio]:checked + label::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: 4px solid #e9513a;
+}

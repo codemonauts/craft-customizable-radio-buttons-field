@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-buttons);
+      }
+
+      .cls-2 {
+        fill: #990080;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-buttons">
+      <rect width="128" height="128"/>
+    </clipPath>
+  </defs>
+  <g id="buttons" class="cls-1">
+    <rect class="cls-3" width="128" height="128"/>
+    <circle id="Ellipse_5" data-name="Ellipse 5" class="cls-2" cx="64" cy="64" r="64"/>
+    <path id="Pfad_27" data-name="Pfad 27" class="cls-3" d="M34.5-59.3A33.416,33.416,0,0,0,1.078-25.875,33.416,33.416,0,0,0,34.5,7.547,33.416,33.416,0,0,0,67.922-25.875,33.416,33.416,0,0,0,34.5-59.3Zm0,60.375A26.946,26.946,0,0,1,7.547-25.875,26.946,26.946,0,0,1,34.5-52.828,26.946,26.946,0,0,1,61.453-25.875,26.946,26.946,0,0,1,34.5,1.078Z" transform="translate(30 90)"/>
+    <path id="Pfad_26" data-name="Pfad 26" class="cls-3" d="M17.5-30.078A16.95,16.95,0,0,0,.547-13.125,16.95,16.95,0,0,0,17.5,3.828,16.95,16.95,0,0,0,34.453-13.125,16.95,16.95,0,0,0,17.5-30.078Z" transform="translate(47 77)"/>
+  </g>
+</svg>

@@ -1,0 +1,113 @@
+.btn-group label.petrol {
+    background: #107e8b;
+    color: #fefefe;
+}
+
+.btn-group label.petrol--dark {
+    background: #0d3b40;
+    color: #fefefe;
+}
+
+.btn-group label.petrol--soft {
+    background: #e6f1f3;
+    color: #0a0a0a;
+}
+
+.btn-group label.petrol--ultrasoft {
+    background: #f2f8f8;
+    color: #0a0a0a;
+}
+
+.btn-group label.gray {
+    background: #848484;
+    color: #fefefe;
+}
+
+.btn-group label.gray--soft {
+    background: #f7f7f7;
+    color: #0a0a0a;
+}
+
+.btn-group label.gray--light {
+    background: #cdcdcd;
+    color: #0a0a0a;
+}
+
+.btn-group label.gray--darker {
+    background: #2f2f2f;
+    color: #fefefe;
+}
+
+.btn-group label.gray--dark {
+    background: #535353;
+    color: #fefefe;
+}
+
+.btn-group label.black {
+    background: #0a0a0a;
+    color: #fefefe;
+}
+
+.btn-group label.white {
+    background: #fefefe;
+    color: #0a0a0a;
+}
+
+.btn-group input[type=radio]:checked + label.petrol {
+    background-color: #107e8b;
+    color: #fefefe;
+}
+
+.btn-group input[type=radio]:checked + label.petrol--dark {
+    background-color: #0d3b40;
+    color: #fefefe;
+    box-shadow: inset 0 2px 4px #fefefe;
+}
+
+.btn-group input[type=radio]:checked + label.petrol--soft {
+    background-color: #e6f1f3;
+    color: #0a0a0a;
+}
+
+.btn-group input[type=radio]:checked + label.petrol--ultrasoft {
+    background-color: #f2f8f8;
+    color: #0a0a0a;
+}
+
+.btn-group input[type=radio]:checked + label.gray {
+    background-color: #848484;
+    color: #fefefe;
+}
+
+.btn-group input[type=radio]:checked + label.gray--soft {
+    background-color: #f7f7f7;
+    color: #0a0a0a;
+}
+
+.btn-group input[type=radio]:checked + label.gray--light {
+    background-color: #cdcdcd;
+    color: #0a0a0a;
+}
+
+.btn-group input[type=radio]:checked + label.gray--darker {
+    background-color: #2f2f2f;
+    color: #fefefe;
+    box-shadow: inset 0 2px 4px #fefefe;
+}
+
+.btn-group input[type=radio]:checked + label.gray--dark {
+    background-color: #535353;
+    color: #fefefe;
+    box-shadow: inset 0 2px 4px #fefefe;
+}
+
+.btn-group input[type=radio]:checked + label.black {
+    background-color: #0a0a0a;
+    color: #fefefe;
+    box-shadow: inset 0 2px 4px #fefefe;
+}
+
+.btn-group input[type=radio]:checked + label.white {
+    background-color: #fefefe;
+    color: #0a0a0a;
+}

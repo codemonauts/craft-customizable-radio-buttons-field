@@ -1,0 +1,10 @@
+<div class="field" id="{{ name }}-field">
+    <div class="input ltr">
+        <div class="btn-group" id="{{ name }}">
+            {% for handle, button in buttons %}
+            <input type="radio" name="{{ name }}" value="{{ button.value }}"{% if value == button.value %} checked{% endif %} id="{{ handle }}"/>
+            <label class="btn big {{ button.class }}" title="{{ button.title|t('buttons') }}" for="{{ handle }}">{%  if button.image != "" %}<img src="{{ button.image }}" alt="{{ button.title|t('buttons') }}" height="24" />{% else %}<span>{{ button.label|t('buttons') }}</span>{% endif %}</label>
+            {% endfor %}
+        </div>
+    </div>
+</div>
