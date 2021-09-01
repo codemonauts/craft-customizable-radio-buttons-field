@@ -12,6 +12,12 @@ body {
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
     display: inline-flex;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+    gap: 4px;
     border: 1px solid #CECFD1;
     border-radius: 4px;
     overflow: hidden;
