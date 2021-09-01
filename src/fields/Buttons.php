@@ -84,9 +84,10 @@ class Buttons extends Field implements PreviewableFieldInterface
 
         $buttons = [];
         foreach ($group['buttons'] as $handle => $button) {
-            $buttons[$handle] = array_merge($this->defaultButton, $button);
-            if ($buttons[$handle]['image'] !== '') {
-                $buttons[$handle]['image'] = Craft::$app->assetManager->getPublishedUrl($buttons[$handle]['image'], true);
+            $fieldHandle = $this->handle . '-' . $handle;
+            $buttons[$fieldHandle] = array_merge($this->defaultButton, $button);
+            if ($buttons[$fieldHandle]['image'] !== '') {
+                $buttons[$fieldHandle]['image'] = Craft::$app->assetManager->getPublishedUrl($buttons[$fieldHandle]['image'], true);
             }
         }
 
