@@ -1,7 +1,7 @@
 {
   "name": "codemonauts/craft-customizable-radio-buttons-field",
   "description": "Craft CMS plugin to add a radio buttons field, customizable with CSS classes, icons, images and text.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "craft-plugin",
   "keywords": [
     "craft",
