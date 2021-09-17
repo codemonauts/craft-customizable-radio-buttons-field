@@ -30,6 +30,11 @@ class Buttons extends Field implements PreviewableFieldInterface
     public $configHandle = '';
 
     /**
+     * @var string Default value
+     */
+    public $defaultValue = '';
+
+    /**
      * @inheritdoc
      */
     public static function displayName(): string
@@ -59,15 +64,28 @@ class Buttons extends Field implements PreviewableFieldInterface
             ];
         }
 
-        return Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'selectField', [
+        $html = Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'selectField', [
             [
                 'label' => Craft::t('buttons', 'Button group'),
+                'instructions' => Craft::t('buttons', 'The button group from the config file to use.'),
                 'id' => 'configHandle',
                 'name' => 'configHandle',
                 'options' => $options,
                 'value' => $this->configHandle,
             ],
         ]);
+
+        $html .= Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textField', [
+            [
+                'label' => Craft::t('buttons', 'Default value'),
+                'instructions' => Craft::t('buttons', 'The default value of the field. If empty, no button will be preselected.'),
+                'id' => 'defaultValue',
+                'name' => 'defaultValue',
+                'value' => $this->defaultValue,
+            ],
+        ]);
+
+        return $html;
     }
 
     /**
@@ -96,7 +114,7 @@ class Buttons extends Field implements PreviewableFieldInterface
 
         return Craft::$app->getView()->renderTemplate('buttons/input', [
             'name' => $this->handle,
-            'value' => $value,
+            'value' => $value ?? $this->defaultValue,
             'field' => $this,
             'buttons' => $buttons,
         ]);
