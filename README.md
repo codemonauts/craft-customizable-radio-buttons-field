@@ -10,7 +10,7 @@ Pictures say more than many words. With this plugin you can add radio buttons as
 
 ## Requirements
 
- * Craft CMS >= 3.0.0
+ * Craft CMS >= 4.0.0
 
 ## Installation
 
