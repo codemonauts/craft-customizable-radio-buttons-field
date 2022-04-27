@@ -9,15 +9,15 @@ class Settings extends Model
     /**
      * @var array The config for all button groups
      */
-    public $buttonGroups = [];
+    public array $buttonGroups = [];
 
     /**
      * @var string Optional CSS file to bundle
      */
-    public $cssFile = '';
+    public string $cssFile = '';
 
     /**
      * @var string Optional URL to an external CSS
      */
-    public $cssUrl = '';
+    public string $cssUrl = '';
 }

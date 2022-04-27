@@ -2,12 +2,14 @@
 
 namespace codemonauts\buttons\fields;
 
+use codemonauts\buttons\fields\conditions\ButtonsFieldConditionRule;
 use codemonauts\buttons\resources\ButtonsAssets;
 use codemonauts\buttons\resources\CustomAssets;
 use Craft;
 use craft\base\ElementInterface;
 use craft\base\Field;
 use craft\base\PreviewableFieldInterface;
+use craft\helpers\Cp;
 use LitEmoji\LitEmoji;
 use codemonauts\buttons\Buttons as Plugin;
 
@@ -16,7 +18,7 @@ class Buttons extends Field implements PreviewableFieldInterface
     /**
      * @var array Default values for buttons
      */
-    protected $defaultButton = [
+    protected array $defaultButton = [
         'image' => '',
         'label' => '',
         'class' => '',
@@ -27,12 +29,12 @@ class Buttons extends Field implements PreviewableFieldInterface
     /**
      * @var string Button handle
      */
-    public $configHandle = '';
+    public string $configHandle = '';
 
     /**
      * @var string Default value
      */
-    public $defaultValue = '';
+    public string $defaultValue = '';
 
     /**
      * @inheritdoc
@@ -53,7 +55,7 @@ class Buttons extends Field implements PreviewableFieldInterface
     /**
      * @inheritdoc
      */
-    public function getSettingsHtml()
+    public function getSettingsHtml(): ?string
     {
         $options = [];
         $buttonGroups = Plugin::getInstance()->getSettings()->buttonGroups;
@@ -64,25 +66,21 @@ class Buttons extends Field implements PreviewableFieldInterface
             ];
         }
 
-        $html = Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'selectField', [
-            [
-                'label' => Craft::t('buttons', 'Button group'),
-                'instructions' => Craft::t('buttons', 'The button group from the config file to use.'),
-                'id' => 'configHandle',
-                'name' => 'configHandle',
-                'options' => $options,
-                'value' => $this->configHandle,
-            ],
+        $html = Cp::selectFieldHtml([
+            'label' => Craft::t('buttons', 'Button group'),
+            'instructions' => Craft::t('buttons', 'The button group from the config file to use.'),
+            'id' => 'configHandle',
+            'name' => 'configHandle',
+            'options' => $options,
+            'value' => $this->configHandle,
         ]);
 
-        $html .= Craft::$app->getView()->renderTemplateMacro('_includes/forms', 'textField', [
-            [
-                'label' => Craft::t('buttons', 'Default value'),
-                'instructions' => Craft::t('buttons', 'The default value of the field. If empty, no button will be preselected.'),
-                'id' => 'defaultValue',
-                'name' => 'defaultValue',
-                'value' => $this->defaultValue,
-            ],
+        $html .= Cp::textFieldHtml([
+            'label' => Craft::t('buttons', 'Default value'),
+            'instructions' => Craft::t('buttons', 'The default value of the field. If empty, no button will be preselected.'),
+            'id' => 'defaultValue',
+            'name' => 'defaultValue',
+            'value' => $this->defaultValue,
         ]);
 
         return $html;
@@ -91,7 +89,7 @@ class Buttons extends Field implements PreviewableFieldInterface
     /**
      * @inheritdoc
      */
-    public function getInputHtml($value, ElementInterface $element = null): string
+    public function getInputHtml(mixed $value, ?ElementInterface $element = null): string
     {
         $settings = Plugin::getInstance()->getSettings();
         $group = Plugin::getInstance()->getSettings()->buttonGroups[$this->configHandle];
@@ -123,7 +121,7 @@ class Buttons extends Field implements PreviewableFieldInterface
     /**
      * @inheritdoc
      */
-    public function serializeValue($value, ElementInterface $element = null)
+    public function serializeValue(mixed $value, ?ElementInterface $element = null): mixed
     {
         if ($value !== null) {
             $value = LitEmoji::unicodeToShortcode($value);
@@ -135,11 +133,18 @@ class Buttons extends Field implements PreviewableFieldInterface
     /**
      * @inheritdoc
      */
-    public function getSearchKeywords($value, ElementInterface $element): string
+    public function getSearchKeywords(mixed $value, ElementInterface $element): string
     {
         $value = (string)$value;
-        $value = LitEmoji::unicodeToShortcode($value);
 
-        return $value;
+        return LitEmoji::unicodeToShortcode($value);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getElementConditionRuleType(): ?string
+    {
+        return ButtonsFieldConditionRule::class;
     }
 }

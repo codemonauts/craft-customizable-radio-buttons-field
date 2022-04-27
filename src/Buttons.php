@@ -3,6 +3,7 @@
 namespace codemonauts\buttons;
 
 use codemonauts\buttons\models\Settings;
+use craft\base\Model;
 use craft\base\Plugin;
 use craft\events\RegisterComponentTypesEvent;
 use craft\services\Fields;
@@ -18,7 +19,7 @@ class Buttons extends Plugin
     {
         parent::init();
 
-        Event::on(Fields::class, Fields::EVENT_REGISTER_FIELD_TYPES, function(RegisterComponentTypesEvent $event) {
+        Event::on(Fields::class, Fields::EVENT_REGISTER_FIELD_TYPES, function (RegisterComponentTypesEvent $event) {
             $event->types[] = ButtonsField::class;
         });
     }
@@ -26,7 +27,7 @@ class Buttons extends Plugin
     /**
      * @inheritdoc
      */
-    protected function createSettingsModel()
+    protected function createSettingsModel(): ?Model
     {
         return new Settings();
     }

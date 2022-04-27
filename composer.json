@@ -1,7 +1,7 @@
 {
   "name": "codemonauts/craft-customizable-radio-buttons-field",
   "description": "Craft CMS plugin to add a radio buttons field, customizable with CSS classes, icons, images and text.",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "type": "craft-plugin",
   "keywords": [
     "craft",
@@ -24,7 +24,8 @@
     "issues": "https://github.com/codemonauts/craft-customizable-radio-buttons-field/issues"
   },
   "require": {
-    "craftcms/cms": "^3.0.0"
+    "craftcms/cms": "^4.0.0-alpha",
+    "php": "^8.0"
   },
   "autoload": {
     "psr-4": {
@@ -34,10 +35,6 @@
   "extra": {
     "handle": "buttons",
     "class": "codemonauts\\buttons\\Buttons",
-    "name": "Customizable Radio Buttons Field",
-    "description": "Radio buttons field, customizable with CSS classes, icons, images and text.",
-    "changelogUrl": "https://github.com/codemonauts/craft-customizable-radio-buttons-field/blob/master/CHANGELOG.md",
-    "hasCpSection": false,
-    "hasSettings": false
+    "name": "Customizable Radio Buttons Field"
   }
 }

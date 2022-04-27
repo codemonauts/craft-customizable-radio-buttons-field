@@ -1,5 +1,16 @@
 # Customizable Radio Buttons Field Changelog
 
+## 2.0.0 - 2022-04-27
+
+### Added
+
+- Craft CMS 4 compatibility
+- Support for Craft CMS 4 condition builder
+
+### Changed
+
+- Requires Craft CMS >= 4.0 and php >= 8.0
+
 ## 1.0.3 - 2021-09-16
 
 ### Added
