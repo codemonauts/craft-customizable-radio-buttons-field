@@ -1,4 +1,4 @@
-# Customizable Radio Buttons Field for Craft CMS 3.x
+# Customizable Radio Buttons Field for Craft CMS
 
 ![Icon](resources/buttons.png)
 
